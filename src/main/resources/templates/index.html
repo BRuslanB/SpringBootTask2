@@ -1,0 +1,51 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:insert="~{head.html}">
+</head>
+<body>
+    <div class="container">
+        <div th:insert="~{navbar.html}"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr class="fw-bold">
+                            <td>ID</td>
+                            <td>NAME</td>
+                            <td>SURNAME</td>
+                            <td>EXAM</td>
+                            <td>MARK</td>
+                            <td width="10%">DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="st : ${all_students}">
+                            <div th:if = "${st.mark.equals('F')}">
+                                <td th:text="${st.id}" style="color: red"></td>
+                                <td th:text="${st.name}" style="color: red"></td>
+                                <td th:text="${st.surname}" style="color: red"></td>
+                                <td th:text="${st.exam}" style="color: red"></td>
+                                <td th:text="${st.mark}" style="color: red"></td>
+                            </div>
+                            <div th:unless= "${st.mark.equals('F')}">
+                                <td th:text="${st.id}"></td>
+                                <td th:text="${st.name}"></td>
+                                <td th:text="${st.surname}"></td>
+                                <td th:text="${st.exam}"></td>
+                                <td th:text="${st.mark}"></td>
+                            </div>
+                            <td>
+                                <a th:href="@{'/details/' + ${st.id}}" class="btn btn-success btn-sm">DETAILS</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:insert="~{head.html}">
+</head>
+<body>
+    <div class="container">
+        <div th:insert="~{navbar.html}"></div>
+    </div>
+    <div class="container">
+        <div th:if = "${one_student != null}">
+            <div class="col-8 mx-auto">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>NAME:</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" th:value="${one_student.getName()}" readonly>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>SURNAME:</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" th:value="${one_student.getSurname()}" readonly>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>EXAM:</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="number" class="form-control" th:value="${one_student.getExam()}" readonly>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>MARK:</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" th:value="${one_student.getMark()}" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
